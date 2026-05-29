@@ -104,6 +104,13 @@ CREATE TABLE notifications (
 
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+CREATE TABLE messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sender_id INT NOT NULL,
+    receiver_id INT NOT NULL,
+    item_id INT NOT NULL,
+    message_text TEXT NOT NULL
+);
 
 -- ============================================
 -- ملاحظات للعضوات:
