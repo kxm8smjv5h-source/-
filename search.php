@@ -26,7 +26,7 @@ if ($category != '') {
 }
 
 if ($building != '') {
-    $sql = $sql . " AND items.building LIKE '%" . $building . "%'";
+    $sql = $sql . " AND items.building = '" . $building . "'";
 }
 
 if ($type != '') {
@@ -100,12 +100,12 @@ $num    = mysqli_num_rows($result);
             <select name="building">
                 <option value="">-- جميع المباني --</option>
                 <?php
-                $building_result = mysqli_query($conn, "SELECT DISTINCT building FROM items WHERE building != '' AND building IS NOT NULL");
-                while ($b = mysqli_fetch_array($building_result)) {
-                    if ($building == $b['building']) {
-                        echo "<option value='" . $b['building'] . "' selected>" . $b['building'] . "</option>";
+                $buildings = array('مبنى 2', 'مبنى 6', 'مبنى 7', 'مبنى 9', 'مبنى 12', 'مبنى 16');
+                foreach ($buildings as $b) {
+                    if ($building == $b) {
+                        echo "<option value='" . $b . "' selected>" . $b . "</option>";
                     } else {
-                        echo "<option value='" . $b['building'] . "'>" . $b['building'] . "</option>";
+                        echo "<option value='" . $b . "'>" . $b . "</option>";
                     }
                 }
                 ?>
