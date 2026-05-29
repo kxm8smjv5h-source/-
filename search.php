@@ -1,6 +1,6 @@
 <?php
 include 'config.php';
-include 'header2.php';
+include 'includes/header.php';
 
 $keyword  = '';
 $category = '';
@@ -123,7 +123,7 @@ $num    = mysqli_num_rows($result);
     <?php
     if ($num == 0) {
         echo "<p class='no-results'>لا توجد نتائج للبحث</p>";
-    } else {
+        } else {
         while ($row = mysqli_fetch_array($result)) {
             echo "<div class='item-card'>";
 
@@ -154,7 +154,7 @@ $num    = mysqli_num_rows($result);
 
 </div>
 
-<?php include 'footer.php'; ?>
+<?php include 'includes/footer.php'; ?>
 
 </body>
-</html> 
+</html>
